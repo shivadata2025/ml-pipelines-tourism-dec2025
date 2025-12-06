@@ -27,7 +27,7 @@ jobs:
 
       - name: Upload Dataset to Hugging Face Hub
         env:
-          HF_TOKEN: ${{ secrets.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 }}
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: |
           python tourism_project/src/upload_data.py \
             --data-file tourism_project/data/tourism.csv \
@@ -50,7 +50,7 @@ jobs:
 
       - name: Run Data Preparation
         env:
-          HF_TOKEN: ${{ secrets.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 }}
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: |
           python tourism_project/src/data_preparation.py \
             --source krish129/tourism-customer-data \
@@ -73,7 +73,7 @@ jobs:
 
       - name: Train and Register Model
         env:
-          HF_TOKEN: ${{ secrets.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 }}
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: |
           python tourism_project/src/model_training.py \
             --data-dir tourism_project/model_building/ \
@@ -103,7 +103,7 @@ jobs:
 
       - name: Deploy Streamlit app to Hugging Face Space
         env:
-          HF_TOKEN: ${{ secrets.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 }}
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: |
           python tourism_project/src/upload_model.py \
             --space krish129/tourism-customer-space \
